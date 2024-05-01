@@ -49,14 +49,14 @@ async def main():
                         if OWNER_ID:
                             await bot.send_message(OWNER_ID, f'Alert {ok.first_name} is offline 💀')
                     else:
-                        TEXT += f"\n\n🤖 - **[{ok.first_name}](tg://openmessage?user_id={ok.id}): ✅ Online**\n ┗ **{msg}**"
+                        TEXT += f"\n\n🤖 - **[{ok.first_name}](tg://openmessage?user_id={ok.id}): ✅ Online**"
                     await app.read_chat_history(bots)
                 except FloodWait as e:
                     await asyncio.sleep(e.value)
             time = datetime.datetime.now(pytz.timezone(f"{TIME_ZONE}"))
             date = time.strftime("%d %b %Y")
             time = time.strftime("%I:%M: %p")
-            TEXT += f"\n\n--Last checked on--: \n{date}\n{time} ({TIME_ZONE})\n\n**Refreshes Automatically After Every 15 Min.**"
+            TEXT += f"\n\n--Terakhir di check--: \n{date}\n{time} ({TIME_ZONE})\n\n**Menyegarkan Secara Otomatis Setelah Setiap 15 Menit.\n\nManage by : @Arabnihnge**"
             await bot.edit_message_text(int(CHANNEL_OR_GROUP_ID), MESSAGE_ID,
                                         TEXT)
             await asyncio.sleep(900)
